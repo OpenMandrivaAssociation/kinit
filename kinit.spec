@@ -2,7 +2,7 @@
 
 Name: kinit
 Version: 4.99.0
-Release: 2
+Release: 3
 Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
