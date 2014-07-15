@@ -1,9 +1,10 @@
 %define debug_package %{nil}
+%define major %(echo %{version} |cut -d. -f1)
 
 Name: kinit
-Version: 4.99.0
-Release: 3
-Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
+Version: 5.0.0
+Release: 1
+Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
 License: GPL
@@ -45,8 +46,9 @@ ninja -C build
 
 %install
 DESTDIR="%{buildroot}" ninja -C build install %{?_smp_mflags}
+%find_lang %{name}%{major}
 
-%files
+%files -f %{name}%{major}.lang
 %{_bindir}/*
 %{_libdir}/libexec/kf5/*
 %{_datadir}/dbus-1/interfaces/*
