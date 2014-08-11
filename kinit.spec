@@ -2,7 +2,7 @@
 %define major %(echo %{version} |cut -d. -f1)
 
 Name: kinit
-Version: 5.0.0
+Version: 5.1.0
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
