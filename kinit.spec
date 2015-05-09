@@ -10,7 +10,6 @@ Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
-BuildRequires: extra-cmake-modules5
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
 BuildRequires: pkgconfig(Qt5Gui)
@@ -57,6 +56,7 @@ is installed.
 %{_datadir}/dbus-1/interfaces/*
 %{_libdir}/libkdeinit5_klauncher.so
 %{_mandir}/man8/*
+%lang(ca) %{_mandir}/ca/man8/*
 %lang(de) %{_mandir}/de/man8/*
 %lang(it) %{_mandir}/it/man8/*
 %lang(nl) %{_mandir}/nl/man8/*
