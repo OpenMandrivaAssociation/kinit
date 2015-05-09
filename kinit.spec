@@ -5,13 +5,11 @@
 Name: kinit
 Version: 5.10.0
 Release: 1
-Source0: http://ftp5.gwdg.de/pub/linux/kde/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
-BuildRequires: cmake
-BuildRequires: qmake5
 BuildRequires: extra-cmake-modules5
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
@@ -28,7 +26,6 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5DocTools)
-BuildRequires: ninja
 
 %description
 Process launcher to speed up launching KDE applications.
@@ -44,14 +41,14 @@ is installed.
 
 %prep
 %setup -q
-%cmake -G Ninja \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+%cmake_kde5
 
 %build
-ninja -C build
+%ninja -C build
 
 %install
-DESTDIR="%{buildroot}" ninja -C build install
+%ninja_install -C build
+
 %find_lang %{name}%{major}
 
 %files -f %{name}%{major}.lang
