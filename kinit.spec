@@ -4,7 +4,7 @@
 
 Name: kinit
 Version:	5.17.0
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
