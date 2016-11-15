@@ -3,7 +3,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kinit
-Version:	5.27.0
+Version:	5.28.0
 Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
@@ -16,7 +16,7 @@ BuildRequires: pkgconfig(Qt5DBus)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(x11)
-BuildRequires:	pkgconfig(libcap)
+BuildRequires: pkgconfig(libcap)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(ECM)
 BuildRequires: cmake(Qt5)
@@ -60,6 +60,7 @@ is installed.
 %{_mandir}/man8/*
 %lang(ca) %{_mandir}/ca/man8/*
 %lang(de) %{_mandir}/de/man8/*
+%lang(es) %{_mandir}/es/man8/*
 %lang(it) %{_mandir}/it/man8/*
 %lang(nl) %{_mandir}/nl/man8/*
 %lang(pt_BR) %{_mandir}/pt_BR/man8/*
