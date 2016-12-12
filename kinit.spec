@@ -10,6 +10,7 @@ Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
+Patch0: fpie.patch
 BuildRequires:	libcap-utils
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
@@ -42,6 +43,7 @@ is installed.
 
 %prep
 %setup -q
+%apply_patches
 %cmake_kde5
 
 %build
