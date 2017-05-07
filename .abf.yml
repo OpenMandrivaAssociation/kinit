@@ -1,4 +1,2 @@
-removed_sources:
-  kinit-5.13.0.tar.xz: 4bdf11e4f413ac1cd1dea0d19e12228b25105c3b
 sources:
-  kinit-5.33.0.tar.xz: 88d3a4c887c9fb995595acd6dc7207c0e76c3cc8
+  kinit-5.34.0.tar.xz: 1c46590fefe91a6436c843e7922c1e3d16518199
