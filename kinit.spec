@@ -4,14 +4,14 @@
 
 Name: kinit
 Version:	5.47.0
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
 Patch0: fpie.patch
-BuildRequires:	libcap-utils
+BuildRequires: libcap-utils
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5DBus)
 BuildRequires: pkgconfig(Qt5Gui)
@@ -28,6 +28,7 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5DocTools)
+Requires: libcap-utils
 
 %description
 Process launcher to speed up launching KDE applications.
@@ -53,6 +54,9 @@ is installed.
 %ninja_install -C build
 
 %find_lang %{name}%{major}
+
+%post
+%{_sbindir}/setcap "CAP_SYS_RESOURCE=+ep" %{_libdir}/libexec/kf5/start_kdeinit ||:
 
 %files -f %{name}%{major}.lang
 %{_bindir}/*
