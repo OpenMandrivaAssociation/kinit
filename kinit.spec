@@ -2,6 +2,9 @@
 %define major %(echo %{version} |cut -d. -f1)
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
+# (tpg) optimize it a bit
+%global optflags %{optflags} -O3
+
 Name: kinit
 Version:	5.50.0
 Release:	1
