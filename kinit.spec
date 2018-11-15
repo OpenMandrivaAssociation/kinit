@@ -6,8 +6,8 @@
 %global optflags %{optflags} -O3
 
 Name: kinit
-Version:	5.51.0
-Release:	2
+Version:	5.52.0
+Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
 URL: http://kde.org/
@@ -57,12 +57,13 @@ is installed.
 %install
 %ninja_install -C build
 
-%find_lang %{name}%{major}
+%find_lang %{name}%{major} --all-name
 
 %post
 %{_sbindir}/setcap "CAP_SYS_RESOURCE=+ep" %{_libdir}/libexec/kf5/start_kdeinit ||:
 
 %files -f %{name}%{major}.lang
+%{_sysconfdir}/xdg/*.categories
 %{_bindir}/*
 %{_libdir}/libexec/kf5/*
 %{_datadir}/dbus-1/interfaces/*
