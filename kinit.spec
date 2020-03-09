@@ -32,6 +32,7 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5DocTools)
+BuildRequires: cmake(KF5DBusAddons)
 Requires(post): libcap-utils
 
 %description
