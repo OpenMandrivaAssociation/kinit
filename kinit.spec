@@ -32,7 +32,6 @@ BuildRequires: cmake(KF5Crash)
 BuildRequires: cmake(KF5Config)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(KF5DBusAddons)
-Requires(post): libcap-utils
 
 %description
 Process launcher to speed up launching KDE applications.
@@ -58,16 +57,15 @@ is installed.
 
 %find_lang %{name}%{major} --all-name --with-man
 
-%post
-%{_sbindir}/setcap "CAP_SYS_RESOURCE=+ep" %{_libdir}/libexec/kf5/start_kdeinit ||:
-
 %files -f %{name}%{major}.lang
 %{_datadir}/qlogging-categories5/*.*categories
 %{_bindir}/*
-%{_libdir}/libexec/kf5/*
+%{_libdir}/libexec/kf5/klauncher
+%caps(cap_sys_resource+ep) %{_libdir}/libexec/kf5/start_kdeinit
+%{_libdir}/libexec/kf5/start_kdeinit_wrapper
 %{_datadir}/dbus-1/interfaces/*
 %{_libdir}/libkdeinit5_klauncher.so
-%{_mandir}/man8/*
+%doc %{_mandir}/man8/*
 
 %files devel
 %{_libdir}/cmake/KF5Init
