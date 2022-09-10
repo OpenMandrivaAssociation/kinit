@@ -5,7 +5,7 @@
 %global optflags %{optflags} -O3
 
 Name: kinit
-Version:	5.97.0
+Version:	5.98.0
 Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Process launcher to speed up launching KDE applications
